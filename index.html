@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Santo Rosario - San Judas Tadeo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a331a 0%, #2d5a2d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f5f5f5;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .invitacion-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            animation: aparecer 1.5s ease-out;
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fondo-santo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(45, 90, 45, 0.85), rgba(20, 40, 20, 0.9)),
+                url('https://noro.mx/wp-content/uploads/2024/10/San-Judas-Tadeo-tradiciones-para-celebrar-al-Santo-de-las-causas-dificiles.jpg') center/cover;
+            z-index: -1;
+            filter: brightness(0.9);
+        }
+
+        .fondo-santo::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="white"/></svg>');
+            background-size: 80px;
+            animation: flotar 15s infinite linear;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            100% {
+                transform: translateY(-80px) translateX(-80px);
+            }
+        }
+
+        .invitacion {
+            padding: 30px 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            animation: tituloAnim 2s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes tituloAnim {
+            0% {
+                letter-spacing: 15px;
+                opacity: 0;
+            }
+
+            100% {
+                letter-spacing: normal;
+                opacity: 1;
+            }
+        }
+
+        .subtitle {
+            color: #e8f5e8;
+            font-size: 1.3rem;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .imagen-santo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            border: 5px solid #4a7c4a;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            position: relative;
+            animation: resplandor 3s infinite alternate;
+        }
+
+        @keyframes resplandor {
+            0% {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .imagen-santo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .detalles {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .motivo {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .motivo::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: #4a7c4a;
+            animation: lineaExpand 2s ease-out;
+        }
+
+        @keyframes lineaExpand {
+            0% {
+                width: 0;
+                left: 50%;
+            }
+
+            100% {
+                width: 50%;
+                left: 25%;
+            }
+        }
+
+        .info-item {
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            animation: itemAparece 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .info-item:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .info-item:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .info-item:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        .info-item:nth-child(4) {
+            animation-delay: 2s;
+        }
+
+        @keyframes itemAparece {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .icono {
+            width: 40px;
+            height: 40px;
+            background: #4a7c4a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .texto-info {
+            font-size: 1.2rem;
+            text-align: left;
+            color: #fff;
+        }
+
+        .invita {
+            margin-top: 25px;
+            font-style: italic;
+            color: #e8f5e8;
+            text-align: center;
+            font-size: 1.3rem;
+            animation: parpadeo 3s infinite;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes parpadeo {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .flores {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flor {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #e8f5e8;
+            opacity: 0.5;
+            animation: caer 10s linear infinite;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.5;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .footer {
+            padding: 15px;
+            text-align: center;
+            background: rgba(20, 40, 20, 0.7);
+            font-size: 1rem;
+            color: #e8f5e8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .oracion {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .motivo {
+                font-size: 1.3rem;
+            }
+
+            .imagen-santo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .texto-info {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invitacion-container">
+        <div class="fondo-santo"></div>
+        <div class="flores" id="flores"></div>
+
+        <div class="invitacion">
+            <div class="header">
+                <h1>INVITACIÓN ESPECIAL</h1>
+                <p class="subtitle">Te esperamos con alegría</p>
+            </div>
+
+            <div class="imagen-santo">
+                <img src="https://noro.mx/wp-content/uploads/2024/10/San-Judas-Tadeo-tradiciones-para-celebrar-al-Santo-de-las-causas-dificiles.jpg"
+                    alt="San Judas Tadeo">
+            </div>
+
+            <div class="detalles">
+                <h2 class="motivo">Santo Rosario en honor a San Judas Tadeo</h2>
+
+                <div class="info-item">
+                    <div class="icono"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="texto-info">Día: <strong>30 de octubre</strong></div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icono"><i class="fas fa-clock"></i></div>
+                    <div class="texto-info">Hora: <strong>4:30 PM</strong></div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icono"><i class="fas fa-home"></i></div>
+                    <div class="texto-info">Domicilio: <strong>Conocido</strong></div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icono"><i class="fas fa-users"></i></div>
+                    <div class="texto-info">Invita: <strong>Fam. Madrigal Peralta</strong></div>
+                </div>
+
+                <p class="invita">¡Tu presencia bendecirá este momento de fe!</p>
+            </div>
+
+            <div class="footer">
+                <p>Que San Judas Tadeo interceda por nosotros</p>
+                <p class="oracion">"Glorioso apóstol San Judas Tadeo, ruega por nosotros"</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Crear flores animadas
+        const floresContainer = document.getElementById('flores');
+        const flores = ['❀', '✿', '🌸', '💮', '🏵️', '✽', '✾'];
+
+        for (let i = 0; i < 20; i++) {
+            const flor = document.createElement('div');
+            flor.className = 'flor';
+            flor.textContent = flores[Math.floor(Math.random() * flores.length)];
+            flor.style.left = Math.random() * 100 + '%';
+            flor.style.animationDelay = Math.random() * 10 + 's';
+            flor.style.fontSize = (Math.random() * 1 + 1) + 'rem';
+            floresContainer.appendChild(flor);
+        }
+
+        // Efecto de escritura para el título
+        const titulo = document.querySelector('h1');
+        const textoOriginal = titulo.textContent;
+        titulo.textContent = '';
+
+        let i = 0;
+        const escribirTitulo = () => {
+            if (i < textoOriginal.length) {
+                titulo.textContent += textoOriginal.charAt(i);
+                i++;
+                setTimeout(escribirTitulo, 100);
+            }
+        };
+
+        // Iniciar animación después de que la página cargue
+        window.addEventListener('load', () => {
+            setTimeout(escribirTitulo, 1000);
+        });
+    </script>
+</body>
+
+</html>
